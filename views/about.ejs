@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Commonsense Question and Answering</title>
+  <style>
+    .jumbotron:hover {
+        box-shadow: 5px 5px #888888;
+    }
+    p, ul {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: large;
+    }
+    h2 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">CommonsenseQA</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="./">Home</a></li>
+                <li class = "active"><a href="#">About</a></li>
+                <li><a href="./contributors">Contributors</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class = "container">
+        <div class = "jumbotron" style = "background-color: white;">
+            <div class = "page-header">
+                <h2 style = "font-family: 'Times New Roman', Times, serif;">Problem Statement</h2>
+            </div>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large;">People generally answer the questions using their own common sense and background knowledge about spatial relations, causes and effects, scientific facts and social conventions. For humans, it is easy but for machines, it is hard because it has nothing to infer to or it cannot retrieve the essence from the information. So our main aim is to make a machine which retrives the knowledge from the data and answers to the questions based on the common sense</p>
+            <div class = "page-header">
+                <h2 style = "font-family: 'Times New Roman', Times, serif;">Dataset Description</h2>
+            </div>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large;">We focussed on dataset <a href = "https://www.tau-nlp.org/commonsenseqa" target = "_blank">CommonsenseQA</a> which is based on knowledge encoded in <a href = "http://conceptnet.io/" target = "_blank">ConceptNet</a> (Speer et al. 2017)</p>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large">Dataset contains</p>
+            <ul>
+                <li>12,247 questions each containing 5 options</li>
+                <li>Different Question Concepts</li>
+                <li>Question token split and Random Split</li>
+                <li>Train/Val/Test: 80/10/10</li>
+            </ul>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large;">OpenbookQA is also a question-answering dataset modeled after open book exams for accessing human understanding of a subject. It consists of 5,497 multiple choice elementary level science questions, which require additional broad common knowledge not contained in the book.</p>
+            <div class = "page-header">
+                <h2 style = "font-family: 'Times New Roman', Times, serif">Baseline Model</h2>
+            </div>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large;">The best baseline models are BERT Large and GPT with an accuracy of  55.9% and 45.5% respectively, on the random split.</p>
+            <div class = "page-header">
+                <h2 style = "font-family: 'Times New Roman', Times, serif;">Our Approach</h2>
+            </div>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: large;">
+                Model Description : We first fine tuned ‘XLNet-base-cased’ pre trained model on OpenbookQA dataset. Then we fine tuned the further pretrained model on Commonsenseqa dataset. Input sequence to the model -  question tokens &lt;s&gt; option tokens &lt;s&gt; &lt;/s&gt;<br>
+                Experiment Details : <br>
+                Model : Transformers module  XLNet-base-cased <br>
+                No. of epochs : 5 on  Openbookqa dataset and then, 10 on Commonsenseqa Dataset <br>
+                Optimizer : AdamW with learning rate  1e-6 <br>
+                Batch size :  8 <br>
+                Max. sequence length : 128 <br>
+            </p>
+            <div class = "page-header">
+                <h2 style = "font-family: 'Times New Roman', Times, serif;">XLNet</h2>
+            </div>
+            <p style = "font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: large;">XLNet is a generalized AR pretraining method that uses a permutation language modelling objective to combine the advantages of AR and AE methods. The neural architecture of XLNet is developed to work seamlessly with the AR objective, including integrating Transformer-XL and careful design of the two-stream attention mechanism. Hence, XLNet surprassed BERT’s performance on 20 tasks and achieved state-of-the-art on 18 tasks, including machine QA (question answeing), NLI(natural language inference), sentiment analysis, and document ranking.</p>
+        </div>
+    </div>
+</body>

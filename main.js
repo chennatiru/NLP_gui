@@ -48,9 +48,22 @@ python_sss.stdout.once('data',function(output_data){
 app.get('/',(req,res) => {
     console.log(output_dat["key_f"][0])
     
-    res.render('home',{"hey":output_dat})
+    res.render('first',{"hey":output_dat})
 
 })
+
+app.get('/about',(req,res) => {
+
+    res.render('about')
+
+})
+
+app.get('/contributors',(req,res) => {
+    
+    res.render('contrib')
+
+})
+
 
 app.post('/ajax11',(req,res) => {
 

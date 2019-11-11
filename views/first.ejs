@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Commonsense Question and Answering</title>
+  <style>
+    .jumbotron:hover {
+        box-shadow: 5px 5px #888888;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script src="../public/some.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">CommonsenseQA</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class = "active"><a href="#">Home</a></li>
+                <li><a href="./about">About</a></li>
+                <li><a href="./contributors">Contributors</a></li>
+            </ul>
+        </div>
+    </nav>
+    <p><br></p>
+    <!--First jumbotron which asks questions-->
+    <div class = "container">
+        <div class = "jumbotron" style = "background-color: white;">
+            
+            <p><br></p>
+            <!--Here is Submit line-->
+            
+
+                
+                <p>Sample Questions</p>
+                <div style="overflow:auto; max-height: 240px;" >
+                <table class="table table-bordered">
+                    <% for(var i=0; i < hey["key_f"].length; i++) { %>
+                       <tr>
+                         <td><%= hey["key_f"][i][0] %></td>
+                       </tr>
+                    <% } %>
+                </table>
+            </div>
+        
+            
+
+            <br>
+            <center><h2 style = "font-family: 'Times New Roman', Times, serif;">Let's have a trial!</h2></center>
+            <div class = "row">
+                <center>
+                <form class = "form-inline" id="form1">
+                        <!--Selection happens here-->
+                        <label for = "Choose"><p style = "font-size: large; font-family:'Trebuchet MS', sans-serif;">Choose a number: </p></label>
+                        <input type = "number" class = "form-control" style = "width: 70px" name="qno" >
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </center>
+            </div>
+            <p style = "font-family: 'Trebuchet MS', sans-serif; font-size: large;"><br></p>
+            <!-- <center><p style = "font-family:  'Trebuchet MS', sans-serif; font-size: x-large;">What is Chenna called in the campus?</p></center> -->
+            
+            <div style="border: solid grey 3px;" class="bg-light" id="ques_div" hidden>
+                <br>
+            <center><p id="question_area" style = "font-family:  'Trebuchet MS', sans-serif; font-size: x-large;"></p></center>
+            <!--Radio checks are here-->
+            <form id="form2">
+
+            <div class = "row" id="form_row">
+            </div>
+
+            </form>
+            <br>
+            </div>
+            <br><br><br>
+
+            <!--Answers are shown here-->
+            <div class = "row">
+                <div class = "col-sm-4">
+                    <center>Your Answer : <strong id="yra_id"></strong></center>
+                </div>
+                <div class = "col-sm-4">
+                    <center>Actual Answer : <strong id="aca_id"></strong></center> 
+                </div>
+                <div class = "col-sm-4">
+                    <center>Model Predicted Answer : <strong id="mpt_id"></strong></center> 
+                </div>
+                
+            </div>
+
+            <br><br><br><br><br>
+        </div>
+
+    </div>
+</body>

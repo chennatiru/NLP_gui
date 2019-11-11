@@ -7,7 +7,7 @@ with open('commonsense_qa/train_rand_split.jsonl') as json_file:
   
   for line in json_file.read().split('\n'):
     if(line!=''):
-        if(i<=5):
+        if(i<=10):
             
             i=i+1
             qapiece = json.loads(line)

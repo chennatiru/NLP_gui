@@ -15,14 +15,21 @@ $(document).ready(function(){
             success:function(resp){
                 console.log(resp)
                 $('#question_area').text(resp[0]);
-                $('#form2').empty();
+                $('#form_row').empty();
+
+                $('#form_row').append(`<div class = "col-sm-1"></div>`)
+                $('#btn_id').remove();
+
                 for (let i = 1; i < resp.length; i++) {
-                    var text = `<div class="form-check">
+                    var text = `<div class = "col-sm-2"><div class="form-check">
                     <label class="form-check-label" for="radio1"><input type="radio" class="form-check-input" id="radio1" name="optradio" value="${i-1}">${resp[i]}</label>
-                    </div>`
-                    $('#form2').append(text)
+                    </div></div>`
+                    $('#form_row').append(text)
                 }
-                $('#form2').append(`<button type="submit" class="btn btn-primary">Submit</button>`)
+                $('#form_row').append(`<div class = "col-sm-1"></div><br><br>`)
+                $('#form2').append(`<center><button type="submit" class="btn btn-primary" id="btn_id">Submit</button></center>`)
+
+                $('#ques_div').show()
             },
             error: function(jqXHR, textStatus, err){
                 console.log('text status '+textStatus+', err '+err)
@@ -43,6 +50,9 @@ $(document).ready(function(){
             data:{radio_text:data},
             success:function(resp){
                 console.log(resp)
+                $('#yra_id').text(resp[0])
+                $('#aca_id').text(resp[1])
+                $('#mpt_id').text(resp[2])
             },
             error: function(jqXHR, textStatus, err){
                 console.log('text status '+textStatus+', err '+err)
