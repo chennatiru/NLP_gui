@@ -40,16 +40,16 @@
             
 
                 
-                <p>Sample Questions</p>
+                <h2 style = "font-family: 'Times New Roman', Times, serif;"><center>Sample Questions</center></h2>
                 <div style="overflow:auto; max-height: 240px;" >
-                <table class="table table-bordered">
-                    <% for(var i=0; i < hey["key_f"].length; i++) { %>
-                       <tr>
-                         <td><%= hey["key_f"][i][0] %></td>
-                       </tr>
-                    <% } %>
-                </table>
-            </div>
+                    <table class="table table-bordered">
+                        <% for(var i=0; i < hey["key_f"].length; i++) { %>
+                            <tr>
+                                <td><%= hey["key_f"][i][0] %></td>
+                            </tr>
+                        <% } %>
+                    </table>
+                </div>
         
             
 
@@ -60,7 +60,7 @@
                 <form class = "form-inline" id="form1">
                         <!--Selection happens here-->
                         <label for = "Choose"><p style = "font-size: large; font-family:'Trebuchet MS', sans-serif;">Choose a number: </p></label>
-                        <input type = "number" class = "form-control" style = "width: 70px" name="qno" >
+                        <input type = "number" class = "form-control" style = "width: 70px" name="qno" min = "1" max = "1221">
                         <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 </center>
@@ -101,3 +101,6 @@
 
     </div>
 </body>
+<footer class = "container-fluid text-center" style = "background-color: #444444;"><p style = "font-family: 'Times New Roman', Times, serif; color: #EEEEEE; padding-top: 5px">&copy; Copyrights reserved</p></footer>
+
+</html>
